@@ -1,3 +1,5 @@
+package br.com.ecommerce;
+
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -11,7 +13,7 @@ public class NewOrderMain {
 
         var producer = new KafkaProducer<String, String>(properties());
         var value = "123456,675623,789456123";
-        var record = new ProducerRecord<>("ECOMERCE_NEW_ORDER", value, value);
+        var record = new ProducerRecord<>("ECOMMERCE_NEW_ORDER", value, value);
 
         producer.send(record, (data, ex) -> {
             if(ex != null){
